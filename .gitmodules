@@ -1,0 +1,6 @@
+[submodule "sru-navigation-sim"]
+	path = sru-navigation-sim
+	url = https://github.com/leggedrobotics/sru-navigation-sim.git
+[submodule "sru-pytorch-spatial-learning"]
+	path = sru-pytorch-spatial-learning
+	url = https://github.com/Bziyue/sru-pytorch-spatial-learning.git
