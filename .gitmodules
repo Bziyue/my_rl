@@ -4,3 +4,6 @@
 [submodule "sru-pytorch-spatial-learning"]
 	path = sru-pytorch-spatial-learning
 	url = https://github.com/Bziyue/sru-pytorch-spatial-learning.git
+[submodule "sru-navigation-learning"]
+	path = sru-navigation-learning
+	url = https://github.com/Bziyue/sru-navigation-learning.git
