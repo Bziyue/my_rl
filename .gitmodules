@@ -7,3 +7,6 @@
 [submodule "sru-navigation-learning"]
 	path = sru-navigation-learning
 	url = https://github.com/Bziyue/sru-navigation-learning.git
+[submodule "Indoor-topology-generation"]
+	path = Indoor-topology-generation
+	url = https://github.com/Bziyue/Indoor-topology-generation.git
