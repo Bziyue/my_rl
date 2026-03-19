@@ -13,6 +13,8 @@ By default, the helper scripts assume:
 - Isaac Lab root: `/home/zdp/CodeField/IsaacLab-2.3.2`
 - Conda env: `env_isaacsim`
 
+If Isaac Sim lives at the standard bundled path `${ISAACLAB_DIR}/_isaac_sim`, the helper scripts will now pick it up automatically.
+
 You can override those with environment variables when needed:
 
 ```bash
@@ -22,6 +24,7 @@ ISAACLAB_DIR=/path/to/IsaacLab ENV_NAME=env_isaacsim ./scripts/setup_nav_trainin
 ## Direct Training From This Workspace
 
 The helper scripts prepend this workspace to `PYTHONPATH`, so you can train from here without first modifying the Conda environment.
+`./scripts/train_nav.sh` also enables cameras automatically because the navigation tasks use camera-based observations.
 
 Quick checks:
 

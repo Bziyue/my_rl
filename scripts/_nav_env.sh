@@ -18,6 +18,8 @@ if [[ -n "${ISAACSIM_DIR:-}" ]]; then
     ISAACSIM_DIR="${ISAACSIM_DIR}"
 elif [[ -n "${ISAACSIM_PATH:-}" ]]; then
     ISAACSIM_DIR="${ISAACSIM_PATH}"
+elif [[ -f "${ISAACLAB_DIR}/_isaac_sim/setup_conda_env.sh" ]]; then
+    ISAACSIM_DIR="${ISAACLAB_DIR}/_isaac_sim"
 else
     ISAACSIM_DIR=""
 fi

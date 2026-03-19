@@ -24,6 +24,7 @@ cmd=(
     "${TASK}"
     --num_envs
     "${NUM_ENVS}"
+    --enable_cameras
 )
 
 if [[ "${HEADLESS}" != "0" ]]; then
