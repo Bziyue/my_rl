@@ -9,6 +9,7 @@ source "${SCRIPT_DIR}/_nav_env.sh"
 TASK="${TASK:-Isaac-Nav-PPO-B2W-Dev-v0}"
 NUM_ENVS="${NUM_ENVS:-32}"
 HEADLESS="${HEADLESS:-1}"
+ENABLE_CAMERAS="${ENABLE_CAMERAS:-0}"
 
 setup_nav_runtime_env
 
@@ -24,8 +25,11 @@ cmd=(
     "${TASK}"
     --num_envs
     "${NUM_ENVS}"
-    --enable_cameras
 )
+
+if [[ "${ENABLE_CAMERAS}" != "0" ]]; then
+    cmd+=(--enable_cameras)
+fi
 
 if [[ "${HEADLESS}" != "0" ]]; then
     cmd+=(--headless)
