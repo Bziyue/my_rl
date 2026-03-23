@@ -8,24 +8,27 @@ This parent repository is wired for SRU navigation training with:
 
 ## Expected Local Setup
 
-By default, the helper scripts assume:
+The helper scripts are designed to work directly from this repository without hardcoded home-directory paths:
 
-- Isaac Lab root: `/home/zdp/CodeField/IsaacLab-2.3.2`
-- Conda env: `env_isaacsim`
+- they prefer the currently activated conda environment via `CONDA_PREFIX`
+- if no env is active, they try to resolve `ENV_NAME` via `conda info --base`
+- they try to locate Isaac Lab next to this repo, for example `../IsaacLab-*`
+- they try to locate Isaac Sim in common sibling locations, for example `../isaacsim` or `../_isaac_sim`
 
-You can override those with environment variables when needed:
+If your layout differs, set environment variables explicitly:
 
 ```bash
-ISAACLAB_DIR=/path/to/IsaacLab ENV_NAME=env_isaacsim ./scripts/setup_nav_training.sh
+CONDA_ENV_DIR=/path/to/conda/env ISAACLAB_DIR=/path/to/IsaacLab ISAACSIM_DIR=/path/to/isaacsim ./scripts/setup_nav_training.sh
 ```
 
 ## Direct Training From This Workspace
 
 The helper scripts prepend this workspace to `PYTHONPATH`, so you can train from here without first modifying the Conda environment.
 
-Quick checks:
+Recommended usage:
 
 ```bash
+conda activate env_isaacsim
 ./scripts/check_nav_env.sh
 ./scripts/train_nav.sh
 ```
@@ -33,12 +36,13 @@ Quick checks:
 ## Optional Persistent Setup
 
 ```bash
+conda activate env_isaacsim
 ./scripts/setup_nav_training.sh
 ```
 
 The setup script is only needed if you want `env_isaacsim` itself to permanently use these packages. It will:
 
-- uninstall the preinstalled `rsl-rl-lib` package from `env_isaacsim`
+- uninstall the preinstalled `rsl-rl-lib` package from the target env
 - remove any stale bundled `rsl_rl` package under Isaac Sim if present
 - install editable `sru-navigation-learning`
 - install editable `sru-navigation-sim`

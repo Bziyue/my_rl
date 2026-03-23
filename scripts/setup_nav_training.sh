@@ -26,7 +26,10 @@ echo "[1/5] Uninstalling preinstalled rsl-rl-lib from ${ENV_NAME} if present"
 
 echo "[2/5] Removing stale Isaac Sim rsl_rl package if present"
 shopt -s nullglob
-stale_paths=("${ISAACLAB_DIR}"/_isaac_sim/kit/python/lib/python*/site-packages/rsl_rl)
+stale_paths=()
+if [[ -n "${ISAACSIM_DIR}" ]]; then
+    stale_paths=("${ISAACSIM_DIR}"/kit/python/lib/python*/site-packages/rsl_rl)
+fi
 if (( ${#stale_paths[@]} > 0 )); then
     rm -rf "${stale_paths[@]}"
 else
